@@ -35,11 +35,10 @@ TrailFolio was developed for a project for the Fall 2014 Web Development Immersi
 
 
 ##Production
-Explore TrailFolio on [Heroku](http://<add-name-here>.herokuapp.com/)
+Explore TrailFolio on Heroku (link coming soon)
 
 ##Backlog
-A full list of user stories can be found on [this Trello Board](https://trello.com/b/mkYdlZHB)
-A mockup of the app is available [here](https://moqups.com/ashtindell/ET4dlTlH/).
+A full list of user stories can be found on [this Trello Board](https://trello.com/b/mkYdlZHB). A mockup of the app is available [here](https://moqups.com/ashtindell/ET4dlTlH/).
 
 ##ERD
 
