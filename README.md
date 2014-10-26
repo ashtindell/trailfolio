@@ -1,11 +1,9 @@
 #TRAILFOLIO
      
-=========================================
 
 ##General Assembly WDI Project 1, October 2014
 <br />
 
-=========================================
 
 ##Overview
 
