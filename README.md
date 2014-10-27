@@ -7,7 +7,7 @@
 
 ##Overview
 
-TrailFolio is a web application that allows users to create 'Folios' for the purpose of organizing trails they like, would like to visit, have visited, etc. Users search through thousands of trails as well as campgrounds, and ski resorts based on location, activity type, and/or name using [trail.API](http://www.trailapi.com/). Sign up for full functionality!
+TrailFolio is a web application that allows users to create 'Folios' for the purpose of organizing trails they like, would like to visit, have visited, etc. Users search through thousands of trails as well as campgrounds, and ski resorts based on location, activity type, and/or name using [trailAPI](http://www.trailapi.com/). Sign up for full functionality!
 
 TrailFolio was developed for a project for the Fall 2014 Web Development Immersive course at General Assembly in Atlanta, GA. It was developed over a week-long sprint to model the agile software development process.
 
