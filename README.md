@@ -17,7 +17,7 @@ TrailFolio was developed for a project for the Fall 2014 Web Development Immersi
 * [Bootstrap 3.2.0](http://getbootstrap.com/)
 * PostgreSQL Database
 * Authentication & Authorization from scratch using [b-crypt-ruby](http://bcrypt-ruby.rubyforge.org/ "bcrypt-ruby")
-* [trail.API](http://www.trailapi.com/) & [HTTParty](https://github.com/jnunemaker/httparty "HTTParty")
+* [trailAPI](http://www.trailapi.com/) & [HTTParty](https://github.com/jnunemaker/httparty "HTTParty")
 * Testing using [rspec-rails](https://github.com/rspec/rspec-rails), [capybara](https://github.com/jnicklas/capybara), and [factory_girl_rails](https://github.com/thoughtbot/factory_girl_rails)
 
 ##User Stories
