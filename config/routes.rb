@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  match '/signup',    to: 'users#new',      via: 'get'
+  root 'static_pages#home'
+
+  match '/home',    to: 'static_pages#home',  via: 'get'
+  match '/about',   to: 'static_pages#about', via: 'get'
+  match '/help',    to: 'static_pages#help',  via: 'get'
+  match '/signup',  to: 'users#new',          via: 'get'
 
   resources :users, only:   [:create, :show]
 
