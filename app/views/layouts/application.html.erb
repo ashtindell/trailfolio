@@ -10,8 +10,9 @@
   <body>
     
     <%= render 'layouts/navigation' %>
-    <%= flash[:notice] %>
-    <%= yield %>
-
+    <div class="container">
+      <%= flash[:notice] %>
+      <%= yield %>
+    </div>
   </body>
 </html>
