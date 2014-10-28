@@ -1,21 +1,32 @@
-<div>
-  <%= form_for(@user) do |f| %>
+<%= form_for(@user) do |f| %>
 
-    <%= render 'shared/error_messages', object: f.object %>
+  <%= render 'shared/error_messages', object: f.object %>
 
+  <div>
     <%= f.label :name %>:
     <%= f.text_field :name %>
+  </div>
+  <br />
 
+  <div>
     <%= f.label :email %>:
     <%= f.text_field :email %> 
+  </div>
+  <br />
 
+  <div>
     <%= f.label :password %>:
     <%= f.text_field :password %>
+  </div>
+  <br />
 
+  <div>
     <%= f.label :password_confirmation %>:
     <%= f.text_field :password_confirmation %>
-
+  </div>
+  <br />
+  <div>
     <%= f.submit 'Submit' %>
-
-  <% end %>
-</div>
+  </div>
+  
+<% end %>
