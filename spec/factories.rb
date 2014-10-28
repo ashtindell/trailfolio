@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :folio do 
+    title   "Favorites"
+    user
+  end
+  
   sequence :name do |n|
     "Name-#{n}"
   end
@@ -13,4 +18,5 @@ FactoryGirl.define do
     password                "foobar"
     password_confirmation   "foobar"
   end
+
 end

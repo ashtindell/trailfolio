@@ -1,0 +1,26 @@
+<% provide(:title, "All Folios") %>
+
+<div class="title">
+  <h1>All Folios</h1>
+  <%= link_to 'Create New Folio', new_folio_path, class: "btn btn-default" %>
+</div>
+
+<table class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @folios.each do |folio| %>
+    <tr>
+      <td><%= folio.title %></td>
+      <td class="button-cell text-center"><%= link_to 'Show', folio_path(folio), 
+                                  class: "" %></td>
+      <td class="button-cell text-center"><%= link_to 'Edit', edit_folio_path(folio), 
+                                  class: "" %></td>
+      <td class="button-cell text-center"><%= link_to 'Delete', folio_path(folio),
+                 method: :delete, data: { confirm: 'Are you sure?' }, 
+                                  class: "" %></td>
+    </tr>
+  <% end %>
+</table>

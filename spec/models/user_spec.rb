@@ -13,6 +13,7 @@ RSpec.describe User, :type => :model do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:remember_token) }
+  it { should respond_to(:folios) }
   it { should be_valid }
 
   describe "validations" do
@@ -125,6 +126,28 @@ RSpec.describe User, :type => :model do
 
       it "has a default value" do
         expect(@user.remember_token).to_not be_blank
+      end
+    end
+  end
+
+  describe "associations" do
+    before do
+      User.destroy_all
+      @user.save
+      FactoryGirl.create(:folio, user_id: @user.id)
+    end
+
+    describe "folio" do
+
+      context "on user destroy" do
+        it "destroys all associated folio" do
+          folios = @user.folios.to_a
+          @user.destroy
+          expect(folios).not_to be_empty
+          folios.each do |folio|
+            expect(Folio.where(id: folio.id)).to be_empty
+          end
+        end
       end
     end
   end
