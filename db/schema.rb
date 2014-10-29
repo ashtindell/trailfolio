@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20141028135818) do
     t.string   "name"
     t.string   "city"
     t.string   "state"
-    t.string   "description"
+    t.text     "description"
     t.string   "activity_type_name"
     t.string   "directions"
     t.string   "trail_length"

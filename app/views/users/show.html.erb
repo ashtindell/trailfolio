@@ -1,3 +1,8 @@
 <% provide(:title, @user.name) %>
 
 <h1><%= @user.name %></h1>
+
+<hr />
+<p><%= link_to "Search for trails", trails_path, class: "btn btn-default" %><p>
+
+<p><%= link_to "View my folios", folios_path, class: "btn btn-default" %></p>

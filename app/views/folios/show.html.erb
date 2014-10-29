@@ -1,3 +1,7 @@
 <% provide(:title, "Show Folio") %>
 
 <h1><%= @folio.title %> Folio</h1>
+
+<% @trails.each do |trail| %>
+  <%= trail.name %>
+<% end %>  
