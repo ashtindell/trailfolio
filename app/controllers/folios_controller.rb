@@ -21,6 +21,11 @@ class FoliosController < ApplicationController
 
   def index
     @folios = current_user.folios
+    # if @folios==nil?
+    #   redirect_to new_folio_path, notice: "Create a folio to save trails!"
+    # else
+    #   render 'index'
+    # end
   end  
 
   def destroy
