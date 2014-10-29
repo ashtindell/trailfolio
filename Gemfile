@@ -19,6 +19,8 @@ gem 'autoprefixer-rails'
 gem "twitter-bootstrap-rails"
 gem 'font-awesome-sass'
 
+gem 'httparty', '~> 0.13.1'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

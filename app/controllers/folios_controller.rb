@@ -2,7 +2,8 @@ class FoliosController < ApplicationController
   before_action :signed_in_user
 
   def show
-    @folio = Folio.find(params[:id])
+    @folio = Folio.find(params[:id]) 
+    @trails = @folio.trails
   end
 
   def new
@@ -50,5 +51,4 @@ class FoliosController < ApplicationController
     def signed_in_user
       redirect_to signin_path, notice: "Please sign in." unless signed_in?
     end
-
 end
