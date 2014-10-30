@@ -32,16 +32,24 @@ class TrailsController < ApplicationController
     end
   end
 
+  # def destroy
+  #   @trail = Trail.find(params[:id])
+  #   @trail.destroy
+  #   redirect_to trails_path, notice: "You successfully deleted a trail from your folio!"
+  # end
+
   def destroy
     @trail = Trail.find(params[:id])
+    @folio = @trail.folio_id
+    current_folio_id = @folio
     @trail.destroy
-    redirect_to trails_path, notice: "You successfully deleted a trail from your folio!"
+    redirect_to folio_path(current_folio_id), notice: "You successfully deleted a trail from your folio!"
   end
 
   private
 
     def trail_params
-      params.require(:trail).permit(:name, :activity_type_name, :city, :state, :description, :folio_id, :directions)
+      params.require(:trail).permit(:name, :activity_type_name, :city, :state, :folio_id, :directions)
     end
 
     def signed_in_user

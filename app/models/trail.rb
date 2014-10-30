@@ -12,7 +12,7 @@ class Trail < ActiveRecord::Base
     activity_type_name = URI.encode(activity_type_name)
     city ||= "park city"
     city = city.split # ["park", "city"]
-    city = city.each { |name| name.capitalize! }
+    city = city.each { |name| name.capitalize! } # ["Park", "City"]
     city = city.join("%20") # "Park%20City"
     auth = { query: { api_key: '002d9365e2b316793760654dcad5c865' }}
     search_url = "https://outdoor-data-api.herokuapp.com/api.json?q[activities_activity_type_name_cont]=#{activity_type_name}&q[city_eq]=#{city}"

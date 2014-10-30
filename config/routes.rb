@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :users,     only: [:create, :show]
   resources :sessions,  only: [:create, :destroy]
-  resources :trails,    only: [:index,  :show, :new, :create]
+  resources :trails,    only: [:index,  :show, :new, :create, :destroy]
   resources :folios
 
 

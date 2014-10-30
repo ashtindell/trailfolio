@@ -1,85 +1,89 @@
 require 'spec_helper'
 
-# Can get passing after Hartl's sign in methods
-# describe FoliosController, :type => :controller do
-#   before do
-#     User.destroy_all
-#   end
+describe FoliosController, :type => :controller do
+  before do
+    User.destroy_all
+  end
 
-#   describe "GET show" do
-#     before do
-#       User.destroy_all
-#     end
+  let(:user) { FactoryGirl.create(:user) }
+  before { sign_in user, no_capybara: true }
 
-#     let(:folio) { FactoryGirl.create(:folio) }
+  describe "POST create folio" do
+    context "valid attributes" do
+      it "creates folio" do
+        expect{
+          post :create, folio: FactoryGirl.attributes_for(:folio)
+        }.to change(Folio, :count).by(1)
+      end
 
-#     it "renders :show page" do
-#       get :show, id: folio.id
-#       expect(response).to render_template(:show)
-#     end
+      it "redirects to :show" do
+        post :create, folio: FactoryGirl.attributes_for(:folio)
+        last_folio = Folio.last
+        expect(response).to redirect_to(folio_path(last_folio.id))
+      end
+    end
 
-#     it "assigns requested folio to @folio" do
-#       get :show, id: folio.id
-#       expect(assigns(:folio)).to eq(folio)
-#     end
-#   end
+    context "invalid attributes" do
+      it "does not create folio" do
+        expect{
+          post :create, folio: FactoryGirl.attributes_for(:folio, title: " ")
+        }.to_not change(Folio, :count)
+      end
 
-#   describe "GET new" do
-#     it "assigns new folio to @folio" do
-#       get :new
-#       expect(assigns(:folio)).to be_a_new(Folio)
-#     end
+      it "re-renders :new" do
+        post :create, folio: FactoryGirl.attributes_for(:folio, title: " ")
+      end
+    end
+  end
 
-#     it "renders :new" do
-#       get :new
-#       expect(response).to render_template(:new)
-#     end
-#   end
 
-#   describe "POST create folio" do
-#     context "valid attributes" do
-#       it "creates folio" do
-#         expect{
-#           post :create, folio: FactoryGirl.attributes_for(:folio)
-#         }.to change(Folio, :count).by(1)
-#       end
+  describe "GET show" do
 
-#       it "redirects to :show" do
-#         post :create, folio: FactoryGirl.attributes_for(:folio)
-#         last_folio = Folio.last
-#         expect(response).to redirect_to(folio_path(last_folio.id))
-#       end
-#     end
+    let(:folio) { FactoryGirl.create(:folio) }
 
-#     context "invalid attributes" do
-#       it "does not create folio" do
-#         expect{
-#           post :create, folio: FactoryGirl.attributes_for(:folio, title: " ")
-#         }.to_not change(Folio, :count)
-#       end
+    it "renders :show page" do
+      get :show, id: folio.id
+      expect(response).to render_template(:show)
+    end
 
-#       it "re-renders :new" do
-#         post :create, folio: FactoryGirl.attributes_for(:folio, title: " ")
-#       end
-#     end
-#   end
+    it "assigns requested folio to @folio" do
+      get :show, id: folio.id
+      expect(assigns(:folio)).to eq(folio)
+    end
+  end
 
-#   describe "GET index" do
-#     before { Folio.destroy_all }
+  describe "GET new" do
 
-#     let(:first_folio)  { FactoryGirl.create(:folio, title: "Favorites") }
-#     let(:second_folio) { FactoryGirl.create(:folio, title: "Next Trip") }
+    let(:folio) { FactoryGirl.create(:folio) }
 
-#     it "renders :index" do
-#       get :index
-#       expect(response).to render_template(:index)
-#     end
+    it "assigns new folio to @folio" do
+      get :new
+      expect(assigns(:folio)).to be_a_new(Folio)
+    end
 
-#     it "assigns all folios to @folios as an array" do
-#       get :index
-#       expect(assigns(:folios)).to eq( [first_folio, second_folio] )
-#     end
-#   end
+    it "renders :new" do
+      get :new
+      expect(response).to render_template(:new)
+    end
+  end
+
+  # describe "GET index" do
+
+  #   # let(:folio) { FactoryGirl.create(:folio) }
+
+  #   let(:first_folio)  { FactoryGirl.create(:folio) }
+  #   let(:second_folio) { FactoryGirl.create(:folio, title: "Next Trip") }
+
+  #   it "renders :index" do
+  #     get :index
+  #     expect(response).to render_template(:index)
+  #   end
+
+  #   it "assigns all folios to @folios as an array" do
+  #     get :index
+  #     expect(assigns(:folios)).to eq([first_folio, second_folio])
+  #   end
+  # end
 
 #   describe "GET edit folio" do
 #     let(:folio) { FactoryGirl.create(:folio) }
@@ -139,4 +143,4 @@ require 'spec_helper'
 #       expect(response).to redirect_to(folios_path)
 #     end 
 #   end
-# end
+end

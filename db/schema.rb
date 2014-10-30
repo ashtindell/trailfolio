@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20141028135818) do
     t.string   "state"
     t.text     "description"
     t.string   "activity_type_name"
-    t.string   "directions"
+    t.text     "directions"
     t.string   "trail_length"
     t.string   "source_url"
     t.integer  "folio_id"

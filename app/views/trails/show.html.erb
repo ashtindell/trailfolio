@@ -1,0 +1,22 @@
+<% provide(:title, "Show Folio") %>
+<div class="container">
+  <h1 class="text-center"><%= @trail.name %></h1>
+
+  <div class="panel panel-default">
+    <div class="panel-heading"><h4>Location:</h2></div>
+    <div class="panel-body">
+      <%= @trail.city %>, <%= @trail.state %>
+    </div>
+
+    <div class="panel-heading"><h4>Activity Type:</h4></div>
+    <div class="panel-body">
+      <%= @trail.activity_type_name %>
+    </div>
+
+    <div class="panel-heading"><h4>Directions:</h4></div>
+    <div class="panel-body">
+      <%= @trail.directions %>
+    </div>
+  </div>
+  <p class="text-center"><%= link_to "...back to previous page", :back %></p>
+</div>  
