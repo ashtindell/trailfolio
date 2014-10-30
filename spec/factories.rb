@@ -1,9 +1,4 @@
 FactoryGirl.define do
-  factory :folio do 
-    title   "Favorites"
-    user
-  end
-  
   sequence :name do |n|
     "Name-#{n}"
   end
@@ -19,4 +14,17 @@ FactoryGirl.define do
     password_confirmation   "foobar"
   end
 
+  factory :folio do 
+    title   "Favorites"
+    user
+  end
+
+  factory :trail do
+    name "Sweetwater Creek"
+    activity_type_name "hiking"
+    city "Atlanta"
+    state "Georgia"
+    directions "leave Atlanta on I-20 heading west"
+    folio
+  end
 end

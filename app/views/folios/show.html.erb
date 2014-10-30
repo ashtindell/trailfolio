@@ -1,7 +1,36 @@
 <% provide(:title, "Show Folio") %>
 
-<h1><%= @folio.title %> Folio</h1>
+<div class="container">
+  <h1 class="text-center">My Folio:</h1>
+  <p class="lead text-center">"<%= @folio.title %>"</p>
+  <p class="text-center">
+      <%= link_to "Search for trails", trails_path, class: "btn btn-default btn-md" %>
+      <%= link_to "View all folios", folios_path, class: "btn btn-default btn-md" %>
+  </p>
+  <% unless @trails.nil? %>
+    <table class="table table-bordered table-striped">
+      <tr>
+        <th>Trail Name</th>
+        <th class="text-center">Activity Type</th>
+        <th colspan="2" class="text-center">Actions</th>
+      </tr>
+      <% @trails.each do |trail| %>
+        <tr>
+          <td><%= trail.name %></td>
+          <td class="text-center"><%= trail.activity_type_name.capitalize %></td>
+          <td class="button-cell text-center"><%= link_to 'Show', trail_path(trail), 
+                                      class: "" %></td>
+          <td class="button-cell text-center">
+            <%= link_to 'Delete', trail_path(trail), method: :delete, data: { confirm: 'Are you sure?' }, class: "" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>
 
-<% @trails.each do |trail| %>
-  <%= trail.name %>
-<% end %>  
+  
+
+<!-- add a search for trails button here -->
+<!-- style the trails as a table? -->
+<!-- create an option to delete the trail -->
