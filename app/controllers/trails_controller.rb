@@ -12,10 +12,6 @@ class TrailsController < ApplicationController
   def create
     @folio = current_user.folios.find(trail_params[:folio_id])
     @trail = @folio.trails.build(trail_params)
-
-    # @trail = @folio.build(trail_params)
-    # @folios = current_user.folios
-    # @trail = @folios.first.trails.build(trail_params)
     if @trail.save
       redirect_to trail_path(@trail.id), notice: "You successfully saved a trail"
     else
@@ -31,12 +27,6 @@ class TrailsController < ApplicationController
       @response = nil
     end
   end
-
-  # def destroy
-  #   @trail = Trail.find(params[:id])
-  #   @trail.destroy
-  #   redirect_to trails_path, notice: "You successfully deleted a trail from your folio!"
-  # end
 
   def destroy
     @trail = Trail.find(params[:id])
