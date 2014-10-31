@@ -17,6 +17,15 @@
     <div class="panel-body">
       <%= @trail.directions %>
     </div>
+
+    <div class="panel-heading"><h4>Description:</h4></div>
+    <div class="panel-body">
+      <% unless @trail.description.nil? %>
+        <%= @trail.description %>
+      <% else %>
+        <p>N/A</p>
+      <% end %>  
+    </div>
   </div>
   <p class="text-center"><%= link_to "...back to previous page", :back %></p>
 </div>  

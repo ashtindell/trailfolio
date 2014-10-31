@@ -1,38 +1,28 @@
-# require 'spec_helper'
+require 'spec_helper'
 
-# describe TrailsController, :type => :controller do
-#   before do
-#     User.destroy_all
-#   end
+describe TrailsController, :type => :controller do
+  before do
+    User.destroy_all
+    Folio.destroy_all
+  end
 
-#   let(:user) { FactoryGirl.create(:user) }
-#   before { sign_in user, no_capybara: true }
+  let(:user) { FactoryGirl.create(:user) }
+  let(:folio) { FactoryGirl.create(:folio) }
 
-#   describe "POST create trail" do
-#     context "valid attributes" do
-#       it "creates trail" do
-#         expect{
-#           post :create, trail: FactoryGirl.attributes_for(:trail)
-#         }.to change(Trail, :count).by(1)
-#       end
+  before { sign_in user, no_capybara: true }
 
-#       it "redirects to :show" do
-#         post :create, trail: FactoryGirl.attributes_for(:trail)
-#         last_trail = Trail.last
-#         expect(response).to redirect_to(trail_path(last_trail.id))
-#       end
-#     end
+  describe "GET show" do
 
-#     context "invalid attributes" do
-#       it "does not create trail" do
-#         expect{
-#           post :create, trail: FactoryGirl.attributes_for(:trail, name: " ")
-#         }.to_not change(Trail, :count)
-#       end
+    let(:trail) { FactoryGirl.create(:trail) }
 
-#       it "re-renders :new" do
-#         post :create, trail: FactoryGirl.attributes_for(:trail, name: " ")
-#       end
-#     end
-#   end
-# end
+    it "renders :show page" do
+      get :show, id: trail.id
+      expect(response).to render_template(:show)
+    end
+
+    it "assigns requested trail to @trail" do
+      get :show, id: trail.id
+      expect(assigns(:trail)).to eq(trail)
+    end
+  end
+end

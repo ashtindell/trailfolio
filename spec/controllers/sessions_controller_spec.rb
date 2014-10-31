@@ -7,9 +7,6 @@ RSpec.describe SessionsController, :type => :controller do
       User.destroy_all
       @user = FactoryGirl.create(:user)
     end
-
-    # let(:user) { FactoryGirl.create(:user) }
-    # before { sign_in user, no_capybara: true }
     
     context "valid attributes" do
       it "signs in user" do
