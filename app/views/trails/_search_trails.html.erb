@@ -1,0 +1,7 @@
+<%= form_tag trails_path, :method => 'get' do %><br />
+  <p>Choose trail type:<br /><%= activity_selector %></p>
+  <p>Enter a city:<br /><%= text_field_tag :city, params[:city] %></p>
+  <%= submit_tag "Search", :name => nil %>
+  <br />
+  <p class="text-center"><small><%= link_to "...back to previous page", :back %></small></p>
+<% end %>

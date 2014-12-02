@@ -13,7 +13,7 @@ class TrailsController < ApplicationController
     @folio = current_user.folios.find(trail_params[:folio_id])
     @trail = @folio.trails.build(trail_params)
     if @trail.save
-      redirect_to trail_path(@trail.id), notice: "You successfully saved a trail"
+      redirect_to folio_path(@folio.id), notice: "You successfully saved a trail"
     else
       render 'new'
     end
