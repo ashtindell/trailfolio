@@ -1,6 +1,6 @@
 = form_tag trails_path, :method => 'get' do
   br
-  p 
+  p
     | Choose trail type:
     br 
     = activity_selector
@@ -8,7 +8,7 @@
     | Enter a city:
     br 
     = text_field_tag :city, params[:city]
-  = submit_tag "Search", :name => nil 
+  = submit_tag "Search", class: 'btn', :name => nil 
   br
   p.text-center
     small = link_to "...back to previous page", :back

@@ -1,7 +1,9 @@
 - provide(:title, "Sign In")
 
-.container
-  .jumbotron
+img#site-bg src="/assets/trailfolio-2.jpg"
+
+#title.container
+  .jumbotron.dk-bg
     h1.text-center Sign In
     .user-form
       = form_for(:session, url: sessions_path) do |f|
