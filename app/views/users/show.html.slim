@@ -1,0 +1,13 @@
+- provide(:title, @user.name)
+
+.container.text-center
+  .jumbotron
+    h1 Hi #{@user.name}!
+    br
+    hr
+    br
+    p.lead Choose a button below:
+    .row
+      .col-md-4 = link_to "1. Create new folio", new_folio_path, class: "btn btn-primary btn-lg btn-block"
+      .col-md-4 = link_to "2. Search for trails", trails_path, class: "btn btn-primary btn-lg btn-block"
+      .col-md-4 = link_to "3. View my folios", folios_path, class: "btn btn-primary btn-lg btn-block"

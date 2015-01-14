@@ -1,0 +1,26 @@
+- provide(:title, "Show Folio")
+
+.container
+  .jumbotron
+    h1.text-center = @folio.title 
+      | Folio
+    p.text-center
+        = link_to "View all folios", folios_path, class: "btn btn-default btn-md"
+        = link_to "Search for trails", trails_path, class: "btn btn-default btn-md"
+    
+    - unless @trails.nil?
+      table.table.table-bordered.table-striped
+        tr
+          th Trail Name
+          th.text-center Activity Type
+          th.text-center colspan="2" Actions
+        
+        - @trails.each do |trail|
+          tr
+            td = trail.name
+            td.text-center = trail.activity_type_name.capitalize
+            td.button-cell.text-center = link_to 'Show', trail_path(trail)
+            td.button-cell.text-center = link_to 'Delete', trail_path(trail), method: :delete, data: { confirm: 'Are you sure?' }
+
+
+/  add a search for trails button here
