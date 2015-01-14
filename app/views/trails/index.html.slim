@@ -1,0 +1,42 @@
+.container
+  .jumbotron.text-center
+    h1.text-center Search for Trails:
+    = render 'search_trails'
+
+  - unless @response.nil?
+    hr
+    - @response["places"].each do |place|
+      .panel.panel-default
+        .panel-heading
+          h3 
+            | Trail Name: 
+            = place["name"]
+        .panel-body
+          h4 Location:
+          p = city(place)
+            | , 
+            = place["state"]
+          - unless place["directions"].nil?
+            h4 Directions:
+            p = place["directions"].gsub("&quot;", "")
+          
+          - if place["activities"].blank? 
+            = form_for(:trail, url: trails_path) do |f|
+              = f.select(:folio_id, options_for_select(@folios.map { |fo| [fo.title, fo.id]}))
+              = f.hidden_field :name, value: place["name"]
+              = f.hidden_field :directions, value: place["directions"]
+              = f.hidden_field :city, value: place["city"]
+              = f.hidden_field :state, value: place["state"]
+              br
+              = f.submit "Add to Folio"
+            
+          - else
+            h4 Activities:
+            - place["activities"].each do |activity|
+              ul
+                li = activity["activity_type_name"].capitalize
+                li = activity["description"].gsub("&quot;", '"')
+              
+              .text-center
+                = render 'folio_selector', place: place, activity: activity
+              

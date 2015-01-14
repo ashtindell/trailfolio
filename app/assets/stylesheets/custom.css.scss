@@ -1,14 +1,18 @@
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=La+Belle+Aurore|Pontano+Sans);
 
+//---------typography----------//
+
 body {
   font-family: 'Pontano Sans', sans-serif;
 }
 
-//---------typography----------//
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'La Belle Aurore', serif;
+}
+
+h3, h4, h5, h6 {
+  font-family: 'Pontano Sans', sans-serif;
 }
 
 p {

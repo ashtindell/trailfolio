@@ -1,0 +1,30 @@
+- provide(:title, "Show Folio") 
+.container
+  h1.text-center = @trail.name
+
+  .panel.panel-default
+    .panel-heading
+      h4 Location:
+    .panel-body
+      = @trail.city, = @trail.state 
+
+    .panel-heading
+      h4 Activity Type:
+    .panel-body
+      = @trail.activity_type_name
+
+    .panel-heading
+      h4 Directions:
+    .panel-body
+      = @trail.directions
+
+    .panel-heading
+      h4 Description:
+    .panel-body
+      - unless @trail.description.nil?
+        = @trail.description
+      - else
+        p N/A
+      
+  p.text-center
+    = link_to "...back to previous page", :back
