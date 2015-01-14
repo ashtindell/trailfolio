@@ -1,7 +1,9 @@
 - provide(:title, "Show Folio")
 
-.container
-  .jumbotron
+img#site-bg src="/assets/trailfolio-2.jpg"
+
+#title.container
+  .jumbotron.dk-bg
     h1.text-center = @folio.title 
       | Folio
     p.text-center
@@ -9,7 +11,7 @@
         = link_to "Search for trails", trails_path, class: "btn btn-default btn-md"
     
     - unless @trails.nil?
-      table.table.table-bordered.table-striped
+      table.table.table-bordered
         tr
           th Trail Name
           th.text-center Activity Type

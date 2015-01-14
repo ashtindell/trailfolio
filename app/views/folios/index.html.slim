@@ -1,13 +1,15 @@
 - provide(:title, "All Folios")
 
-.container
-  .jumbotron
+img#site-bg src="/assets/trailfolio-2.jpg"
+
+#title.container
+  .jumbotron.dk-bg
     h1.text-center All Folios
     p.text-center
       = link_to 'Create New Folio', new_folio_path, class: "btn btn-default"
       = link_to "Search for trails", trails_path, class: "btn btn-default btn-md"
   
-    table.table.table-bordered.table-striped
+    table.table.table-bordered
       tr
         th colspan="4" Title
      

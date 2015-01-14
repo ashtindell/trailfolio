@@ -1,10 +1,11 @@
-.container
-  .jumbotron.text-center
+img#site-bg src="/assets/trailfolio-2.jpg"
+
+#title.container
+  .jumbotron.dk-bg.text-center
     h1.text-center Search for Trails:
     = render 'search_trails'
 
   - unless @response.nil?
-    hr
     - @response["places"].each do |place|
       .panel.panel-default
         .panel-heading
@@ -18,7 +19,7 @@
             = place["state"]
           - unless place["directions"].nil?
             h4 Directions:
-            p = place["directions"].gsub("&quot;", "")
+            p = place["directions"].gsub(/&quot;/, "").gsub("<br />", " ").gsub("&lt;", "").gsub("&gt", "").gsub("br /;", " ")
           
           - if place["activities"].blank? 
             = form_for(:trail, url: trails_path) do |f|
@@ -28,14 +29,14 @@
               = f.hidden_field :city, value: place["city"]
               = f.hidden_field :state, value: place["state"]
               br
-              = f.submit "Add to Folio"
+              = f.submit "Add to Folio", class: 'btn'
             
           - else
             h4 Activities:
             - place["activities"].each do |activity|
               ul
                 li = activity["activity_type_name"].capitalize
-                li = activity["description"].gsub("&quot;", '"')
+                li = activity["description"].gsub("&quot;", '"').gsub("<br />", " ")
               
               .text-center
                 = render 'folio_selector', place: place, activity: activity
