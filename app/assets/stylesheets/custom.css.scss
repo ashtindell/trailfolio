@@ -1,6 +1,14 @@
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=La+Belle+Aurore|Pontano+Sans);
 
 body {
+  font-family: 'Pontano Sans', sans-serif;
+}
+
+//---------typography----------//
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'La Belle Aurore', serif;
 }
 
 p {
@@ -11,14 +19,15 @@ a {
   color: #799c57;
 }
 
-#bg-home {
-  position: fixed; 
-  top: 0; 
-  left: 0;  
-  min-width: 100%;
-  min-height: 100%;
-  z-index: -1;
+#title h1 {
+  color: #ffffff;
 }
+
+#title p {
+  color: #ffffff;
+}
+
+//---------navbar----------//
 
 .navbar {
   border-radius: 0px;
@@ -28,28 +37,36 @@ a {
   opacity: .8;
 }
 
+//---------images----------//
+
+#bg-home {
+  position: fixed; 
+  top: 0; 
+  left: 0;  
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+//---------custom----------//
+
 .jumbotron {
-  padding-top: 85px;
+  padding-top: 95px;
   padding-bottom: 18px;
   width: 80%;
   margin: 0 auto;
   background: transparent;
 }
 
-#home h1 {
-  color: #ffffff;
+.panel-default {
+  width: 75%;
+  margin: 20px auto 30px;
 }
 
-#home p {
-  color: #ffffff;
-}
+//---------buttons----------//
 
 .btn-center {
   margin: 0 auto;
-}
-
-select {
-  margin: 10px;
 }
 
 button, html input[type="button"], input[type="reset"], input[type="submit"] {
@@ -58,16 +75,6 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
   background-color: #8EB566;
   border-color: #8EB566;
   border: none;
-}
-
-input[type='text']:focus{
- outline:none;
- border-color: #8EB566;
-}
-
-.user-form {
-  width: 50%;
-  margin: 0 auto;
 }
 
 .btn-primary {
@@ -80,12 +87,22 @@ input[type='text']:focus{
   border-color: #799c57;
 }
 
+//---------forms----------//
+
+.user-form {
+  width: 50%;
+  margin: 0 auto;
+}
+
 .autofocus {
   border-color: #799c57;
 }
 
-.panel-default {
-  width: 75%;
-  margin: 20px auto 30px;
+input[type='text']:focus{
+ outline:none;
+ border-color: #8EB566;
 }
 
+select {
+  margin: 10px;
+}

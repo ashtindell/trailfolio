@@ -47,15 +47,11 @@ group :test do
   gem 'factory_girl_rails', '4.2.0'
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+#Slim
+#Make sure you install slim before running any generator
+#Once installed,slim will be used as the default template engine for generators
 
-# Use unicorn as the app server
-# gem 'unicorn'
+gem 'slim'
+gem 'slim-rails'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 
