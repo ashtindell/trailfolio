@@ -8,7 +8,5 @@
     | Enter a city:
     br 
     = text_field_tag :city, params[:city]
-  = submit_tag "Search", class: 'btn', :name => nil 
-  br
-  p.text-center
-    small = link_to "...back to previous page", :back
+  = submit_tag "Search", class: 'btn btn-primary btn-lg', :name => nil 
+  
